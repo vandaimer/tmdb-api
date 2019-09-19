@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  api:
+  dev:
     build: .
     command: python -m flask run -p 8000 -h 0.0.0.0
     volumes:
@@ -12,3 +12,11 @@ services:
       - FLASK_DEBUG=1
       - FLASK_APP=tmdb
       - FLASK_ENV=development
+
+  prod:
+    build: .
+    command: gunicorn -w 4 -b 0.0.0.0:8000 tmdb:app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
