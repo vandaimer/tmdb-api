@@ -9,9 +9,11 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - FLASK_DEBUG=1
-      - FLASK_APP=tmdb
-      - FLASK_ENV=development
+      FLASK_DEBUG: "1"
+      FLASK_APP: "tmdb"
+      FLASK_ENV: "development"
+      TMDB_BASE_URL: "https://api.themoviedb.org/3"
+      TMDB_API_KEY: "1f54bd990f1cdfb230adb312546d765d"
 
   prod:
     build: .
@@ -20,3 +22,6 @@ services:
       - .:/app
     ports:
       - "8000:8000"
+    environment:
+      TMDB_BASE_URL: "https://api.themoviedb.org/3"
+      TMDB_API_KEY: "1f54bd990f1cdfb230adb312546d765d"
