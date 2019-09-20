@@ -14,6 +14,7 @@ services:
       FLASK_ENV: "development"
       TMDB_BASE_URL: "https://api.themoviedb.org/3"
       TMDB_API_KEY: "1f54bd990f1cdfb230adb312546d765d"
+      TMDB_IMAGE_BASE_URL: "https://image.tmdb.org/t/p"
 
   prod:
     build: .
@@ -25,3 +26,4 @@ services:
     environment:
       TMDB_BASE_URL: "https://api.themoviedb.org/3"
       TMDB_API_KEY: "1f54bd990f1cdfb230adb312546d765d"
+      TMDB_IMAGE_BASE_URL: "https://image.tmdb.org/t/p"
