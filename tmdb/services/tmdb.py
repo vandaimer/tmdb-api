@@ -5,7 +5,7 @@ from tmdb import config
 
 class TMDBService:
 
-    MOVIE_BASE_URL = f'{config.TMDB_BASE_URL}/movie'
+    MOVIE_BASE_URL = f'{config.TMDB_API_BASE_URL}/movie'
     BASE_QUERY_PARAMS = f'api_key={config.TMDB_API_KEY}&language=en-US'
 
     @staticmethod
