@@ -14,4 +14,5 @@ def call_healt_check_view():
 
 @api.route('/movies', methods=['GET'])
 def call_movies_upcoming_list():
-    return jsonify(Movie.get_upcoming_list())
+    page = request.args.get('page', 1)
+    return jsonify(Movie.get_upcoming_list(page=page))

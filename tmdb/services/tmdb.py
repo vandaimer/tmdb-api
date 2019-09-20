@@ -10,9 +10,9 @@ class TMDBService:
     BASE_QUERY_PARAMS = f'api_key={config.TMDB_API_KEY}&language=en-US'
 
     @staticmethod
-    def get_upcoming_movie_list():
+    def get_upcoming_movie_list(page):
         url = f'{TMDBService.MOVIE_BASE_URL}/upcoming'
-        params = f'{TMDBService.BASE_QUERY_PARAMS}&page=1'
+        params = f'{TMDBService.BASE_QUERY_PARAMS}&page={page}'
 
         return requests.get(url, params=params).json()
 

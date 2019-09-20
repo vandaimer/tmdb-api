@@ -3,8 +3,12 @@ from tmdb.services import TMDBService
 
 class Movie:
     @staticmethod
-    def get_upcoming_list():
-        result = TMDBService.get_upcoming_movie_list()
+    def get_upcoming_list(page):
+        result = TMDBService.get_upcoming_movie_list(page=page)
+
+        if result.get('errors'):
+            return { 'items': [], 'page': 1, 'total_pages': 1 }
+
         movies = [Movie.build_movie(movie) for movie in result['results']]
 
         return {
