@@ -12,7 +12,7 @@ def call_healt_check_view():
     return HealthCheck.get()
 
 
-@api.route('/movies', methods=['GET'])
-def call_movies_upcoming_list():
+@api.route('/movie/upcoming', methods=['GET'])
+def call_movie_upcoming_list():
     page = request.args.get('page', 1)
     return jsonify(Movie.get_upcoming_list(page=page))
