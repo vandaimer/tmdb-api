@@ -28,6 +28,7 @@ class Movie:
         built_movie = {
             'title': movie.get('title'),
             'release_date': movie.get('release_date'),
+            'overview': movie.get('overview'),
             'genres': [Genre.get_genre_by_id(genre_id) for genre_id in genre_ids],
         }
 
