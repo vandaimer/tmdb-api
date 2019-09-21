@@ -25,10 +25,14 @@ class Movie:
         backdrop = movie.get('backdrop_path')
         genre_ids = movie.get('genre_ids')
 
-        return {
+        built_movie = {
             'title': movie.get('title'),
             'release_date': movie.get('release_date'),
             'poster': TMDBService.get_image_url(poster),
-            'backdrop': TMDBService.get_image_url(backdrop),
             'genres': [Genre.get_genre_by_id(genre_id) for genre_id in genre_ids],
         }
+
+        if backdrop:
+            built_movie['backdrop'] = TMDBService.get_image_url(backdrop)
+
+        return built_movie
