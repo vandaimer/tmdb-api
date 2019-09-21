@@ -19,4 +19,4 @@ class Genre:
 
     @staticmethod
     def build_genre_structure(genre_list):
-        return { genre['id']: genre['name'] for genre in genre_list }
+        return {genre['id']: genre['name'] for genre in genre_list}

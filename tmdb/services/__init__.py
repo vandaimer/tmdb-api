@@ -1,1 +1,1 @@
-from .tmdb import TMDBService
+from .tmdb import TMDBService # noqa

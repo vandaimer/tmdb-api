@@ -8,7 +8,12 @@ class Movie:
         result = TMDBService.get_upcoming_movie_list(page=page)
 
         if result.get('errors'):
-            return { 'items': [], 'page': 1, 'total_pages': 1, 'total_results': 0 }
+            return {
+                'items': [],
+                'page': 1,
+                'total_pages': 1,
+                'total_results': 0
+            }
 
         movies = [Movie.build_movie(movie) for movie in result['results']]
 
@@ -29,7 +34,8 @@ class Movie:
             'title': movie.get('title'),
             'release_date': movie.get('release_date'),
             'overview': movie.get('overview'),
-            'genres': [Genre.get_genre_by_id(genre_id) for genre_id in genre_ids],
+            'genres': [Genre.get_genre_by_id(genre_id)
+                       for genre_id in genre_ids],
         }
 
         if backdrop:

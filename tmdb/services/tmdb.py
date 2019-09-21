@@ -2,7 +2,6 @@ import requests
 from tmdb import config
 
 
-
 class TMDBService:
 
     MOVIE_BASE_URL = f'{config.TMDB_API_BASE_URL}/movie'

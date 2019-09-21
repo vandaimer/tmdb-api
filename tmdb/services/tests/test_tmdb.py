@@ -13,7 +13,7 @@ class TestTMDBService:
         page = 1
         url = f'{TMDBService.MOVIE_BASE_URL}/upcoming'
         expected = {
-            'results':{},
+            'results': {},
         }
 
         requests_mock.get(url, json=expected)
