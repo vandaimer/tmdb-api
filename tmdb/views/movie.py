@@ -28,11 +28,13 @@ class Movie:
         built_movie = {
             'title': movie.get('title'),
             'release_date': movie.get('release_date'),
-            'poster': TMDBService.get_image_url(poster),
             'genres': [Genre.get_genre_by_id(genre_id) for genre_id in genre_ids],
         }
 
         if backdrop:
             built_movie['backdrop'] = TMDBService.get_image_url(backdrop)
+
+        if poster:
+            built_movie['poster'] = TMDBService.get_image_url(poster)
 
         return built_movie
