@@ -8,7 +8,7 @@ class Movie:
         result = TMDBService.get_upcoming_movie_list(page=page)
 
         if result.get('errors'):
-            return { 'items': [], 'page': 1, 'total_pages': 1 }
+            return { 'items': [], 'page': 1, 'total_pages': 1, 'total_results': 0 }
 
         movies = [Movie.build_movie(movie) for movie in result['results']]
 
@@ -16,6 +16,7 @@ class Movie:
             'items': movies,
             'page': result['page'],
             'total_pages': result['total_pages'],
+            'total_results': result['total_results'],
         }
 
     @staticmethod
