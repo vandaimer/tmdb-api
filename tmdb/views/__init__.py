@@ -18,6 +18,7 @@ def catch_all_view(path):
         'now':  time.time(),
     }
 
+
 @api.route('/healthcheck', methods=['GET'])
 def call_healt_check_view():
     return HealthCheck.get()
